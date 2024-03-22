@@ -35,6 +35,7 @@ jobs:
         uses: PaulHatch/semantic-version@v5.4.0
         with:
           version_from_tag: true
+          tag_prefix: 'v'
           # If true, the branch will be used to select the maximum version
           version_from_branch: true # optional, default is false
           # Pattern to use when formatting output version
