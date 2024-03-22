@@ -42,7 +42,6 @@ jobs:
           version_format: "v${major}.${minor}.${patch}"
           # If true, every commit will be treated as a bump to the version.
           bump_each_commit: true # default is false
-          bump_each_commit_patch_pattern: "(PATCH)"
           # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
           search_commit_body: false # default is false
           debug: true
