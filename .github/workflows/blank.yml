@@ -34,7 +34,6 @@ jobs:
         id: generate-version
         uses: PaulHatch/semantic-version@v5.4.0
         with:
-          version_from_tag: true
           tag_prefix: 'v'
           # If true, the branch will be used to select the maximum version
           version_from_branch: true # optional, default is false
@@ -42,8 +41,9 @@ jobs:
           version_format: "v${major}.${minor}.${patch}"
           # If true, every commit will be treated as a bump to the version.
           bump_each_commit: true # default is false
+          bump_each_commit_patch_pattern: "(PATCH)"
           # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
-          search_commit_body: false # default is false
+          search_commit_body: true # default is false
           debug: true
       - name: Create tag and push
         run: git tag ${{ steps.generate-version.outputs.version }} && git push --tags
