@@ -28,6 +28,7 @@ jobs:
       - name: Git Semantic Version
         # You may pin to the exact commit or the version.
         # uses: PaulHatch/semantic-version@a8f8f59fd7f0625188492e945240f12d7ad2dca3
+        id: generate-version
         uses: PaulHatch/semantic-version@v5.4.0
         with:
           # If true, the branch will be used to select the maximum version
@@ -39,5 +40,5 @@ jobs:
           # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
           search_commit_body: true # default is false
 
-      - name: Display the ENV
-        run: printenv
+      - name: Create tag and push
+        run: git tag ${{ steps.generate-version.outputs.version }} && git push --tags
