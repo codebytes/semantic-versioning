@@ -34,10 +34,11 @@ jobs:
         id: generate-version
         uses: PaulHatch/semantic-version@v5.4.0
         with:
+          version_from_tag: true
           # If true, the branch will be used to select the maximum version
           version_from_branch: true # optional, default is false
           # Pattern to use when formatting output version
-          version_format: ${major}.${minor}.${patch}
+          version_format: "v${major}.${minor}.${patch}"
           # If true, every commit will be treated as a bump to the version.
           bump_each_commit: true # default is false
           # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
