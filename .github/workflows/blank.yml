@@ -45,5 +45,9 @@ jobs:
           # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
           search_commit_body: false # default is false
           debug: true
+      - name: Add output to env
+        run : echo "version=${{ steps.generate-version.outputs.version }}" >> "$GITHUB_ENV"
+      - name: printenv
+        run: printenv
       - name: Create tag and push
         run: git tag ${{ steps.generate-version.outputs.version }} && git push --tags
