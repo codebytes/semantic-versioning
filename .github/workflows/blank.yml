@@ -39,5 +39,5 @@ jobs:
           # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
           search_commit_body: true # default is false
 
-      - name: bash - Display the ENV
-        run: echo $ENV
+      - name: Display the ENV
+        run: printenv
