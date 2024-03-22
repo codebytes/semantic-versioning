@@ -44,7 +44,7 @@ jobs:
           bump_each_commit: true # default is false
           bump_each_commit_patch_pattern: "(PATCH)"
           # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
-          search_commit_body: true # default is false
+          search_commit_body: false # default is false
           debug: true
       - name: Create tag and push
         run: git tag ${{ steps.generate-version.outputs.version }} && git push --tags
